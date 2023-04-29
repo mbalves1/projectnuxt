@@ -1,6 +1,7 @@
 <template>
   <section class="container">
     <div>
+      <TheNavbar/>
       <logo/>
       <h1 class="title">
         nuxt-fundamentals
@@ -11,7 +12,12 @@
       <div class="links">
         <nuxt-link
           v-for="post in $store.state.post.all"
-          :to="{name: 'posts-id', params: {id: post.id}}"
+          :to="{
+            name: 'posts-id',
+            params: {
+                id: post.id
+              }
+            }"
           :key="post.id"
           class="button--grey"
         >
@@ -24,9 +30,11 @@
 
 <script>
 import Logo from '~/components/Logo.vue'
+import TheNavbar from '~/components/TheNavbar.vue'
 export default {
   components: {
-    Logo
+    Logo,
+    TheNavbar
   },
   head () {
     return {
