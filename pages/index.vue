@@ -11,7 +11,7 @@
       </h2>
       <div class="links">
         <nuxt-link
-          v-for="post in $store.state.post.all"
+          v-for="post in postsAll"
           :to="{
             name: 'posts-id',
             params: {
@@ -54,10 +54,9 @@ export default {
     // }
   },
   computed: {
-    // postsAll () {
-    //   console.log(">>", this.$store.state.post.all)
-    //   return this.$store.state
-    // }
+    postsAll () {
+      return this.$store.state.post.all
+    }
   }
 }
 </script>
@@ -86,4 +85,20 @@ export default {
 .links {
   padding-top: 15px;
 }
+
+.button--grey {
+  display: inline-block;
+  border-radius: 4px;
+  border: 1px solid #35495e;
+  color: #35495e;
+  text-decoration: none;
+  padding: 10px 30px;
+  margin-left: 15px;
+}
+
+.button--grey:hover {
+  color: #fff;
+  background-color: #35495e;
+}
+
 </style>
